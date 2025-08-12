@@ -1,0 +1,36 @@
+{
+  "name": "Skill",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nom de la compétence"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "frontend",
+        "backend",
+        "database",
+        "tools",
+        "soft_skills"
+      ],
+      "description": "Catégorie de compétence"
+    },
+    "proficiency": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "Niveau de maîtrise sur 5"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Nom de l'icône"
+    }
+  },
+  "required": [
+    "name",
+    "category",
+    "proficiency"
+  ]
+}

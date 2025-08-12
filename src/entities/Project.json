@@ -1,0 +1,57 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titre du projet"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description détaillée du projet"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "URL de l'image du projet"
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Technologies utilisées"
+    },
+    "github_url": {
+      "type": "string",
+      "description": "Lien vers le dépôt GitHub"
+    },
+    "live_url": {
+      "type": "string",
+      "description": "Lien vers le site en ligne"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "web",
+        "mobile",
+        "desktop",
+        "fullstack",
+        "backend"
+      ],
+      "description": "Catégorie du projet"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "in_progress",
+        "concept"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}
