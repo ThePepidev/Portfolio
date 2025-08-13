@@ -193,18 +193,42 @@ export default function About() {
                         {/* Company Logo */}
                         {exp.logo && (
                           <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden border-2 border-gray-100">
-                            <img
-                              src={exp.logo}
-                              alt={`Logo ${exp.company}`}
-                              className="w-8 h-8 object-contain"
-                              onError={(e) => {
-                                e.target.style.display = "none";
-                                e.target.nextSibling.style.display = "flex";
-                              }}
-                            />
-                            <div className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full items-center justify-center text-white text-sm font-bold hidden">
-                              {exp.company.charAt(0)}
-                            </div>
+                            {exp.website ? (
+                              <a
+                                href={exp.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full h-full flex items-center justify-center hover:scale-105 transition-transform duration-200"
+                              >
+                                <img
+                                  src={exp.logo}
+                                  alt={`Logo ${exp.company}`}
+                                  className="w-8 h-8 object-contain"
+                                  onError={(e) => {
+                                    e.target.style.display = "none";
+                                    e.target.nextSibling.style.display = "flex";
+                                  }}
+                                />
+                                <div className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full items-center justify-center text-white text-sm font-bold hidden">
+                                  {exp.company.charAt(0)}
+                                </div>
+                              </a>
+                            ) : (
+                              <>
+                                <img
+                                  src={exp.logo}
+                                  alt={`Logo ${exp.company}`}
+                                  className="w-8 h-8 object-contain"
+                                  onError={(e) => {
+                                    e.target.style.display = "none";
+                                    e.target.nextSibling.style.display = "flex";
+                                  }}
+                                />
+                                <div className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full items-center justify-center text-white text-sm font-bold hidden">
+                                  {exp.company.charAt(0)}
+                                </div>
+                              </>
+                            )}
                           </div>
                         )}
                         <div>
