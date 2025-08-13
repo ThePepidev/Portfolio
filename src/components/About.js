@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { User, Code, Briefcase } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Skill, Experience } from '@/entities/all';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { User, Code, Briefcase } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Skill, Experience } from "@/entities/all";
 
 export default function About() {
   const [skills, setSkills] = useState([]);
@@ -16,22 +16,25 @@ export default function About() {
   const loadData = async () => {
     const [skillsData, experiencesData] = await Promise.all([
       Skill.list(),
-      Experience.list('-start_date')
+      Experience.list("-start_date"),
     ]);
     setSkills(skillsData);
     setExperiences(experiencesData);
   };
 
   const skillCategories = {
-    frontend: { name: 'Frontend', color: 'bg-blue-500' },
-    backend: { name: 'Backend', color: 'bg-green-500' },
-    database: { name: 'Base de données', color: 'bg-purple-500' },
-    tools: { name: 'Outils', color: 'bg-orange-500' },
-    soft_skills: { name: 'Compétences transversales', color: 'bg-pink-500' }
+    frontend: { name: "Frontend", color: "bg-blue-500" },
+    backend: { name: "Backend", color: "bg-green-500" },
+    database: { name: "Base de données", color: "bg-purple-500" },
+    tools: { name: "Outils", color: "bg-orange-500" },
+    soft_skills: { name: "Compétences transversales", color: "bg-pink-500" },
   };
 
   const formatDate = (date) => {
-    return new Date(date).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+    return new Date(date).toLocaleDateString("fr-FR", {
+      month: "long",
+      year: "numeric",
+    });
   };
 
   return (
@@ -48,8 +51,8 @@ export default function About() {
             À propos de moi
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Développeur passionné étudiant à Epitech, je fais autant 
-            de la création d'applications web que du développement logiciel.
+            Développeur passionné étudiant à Epitech, je fais autant de la
+            création d'applications web que du développement logiciel.
           </p>
         </motion.div>
 
@@ -67,23 +70,28 @@ export default function About() {
                   <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
                     <User className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Mon parcours</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Mon parcours
+                  </h3>
                 </div>
                 <div className="space-y-4 text-gray-600 leading-relaxed">
                   <p>
-                    Actuellement en Master à Epitech pour devenir expert des technologies de 
-                    l’information, je réalise mon stage en tant que développeur full stack.
+                    Actuellement en Master à Epitech pour devenir expert des
+                    technologies de l’information, je réalise mon stage en tant
+                    que développeur full stack.
                   </p>
                   <p>
-                    Initialement formé au backend avec Express, FastAPI, Python et JavaScript, 
-                    j’ai élargi mes compétences au frontend par curiosité personnelle, avant 
-                    de les mettre en pratique dans un contexte professionnel.
+                    Initialement formé au backend avec Express, FastAPI, Python
+                    et JavaScript, j’ai élargi mes compétences au frontend par
+                    curiosité personnelle, avant de les mettre en pratique dans
+                    un contexte professionnel.
                   </p>
                   <p>
-                    Ce qui me motive le plus, c’est de voir un projet abouti et utile, qu’il 
-                    serve directement un client ou contribue à la réussite de l’entreprise.
-                    Autonome dans mon travail, j’ai également consolidé au fil de mes études 
-                    de solides compétences en collaboration et en travail d’équipe.
+                    Ce qui me motive le plus, c’est de voir un projet abouti et
+                    utile, qu’il serve directement un client ou contribue à la
+                    réussite de l’entreprise. Autonome dans mon travail, j’ai
+                    également consolidé au fil de mes études de solides
+                    compétences en collaboration et en travail d’équipe.
                   </p>
                 </div>
               </CardContent>
@@ -103,17 +111,23 @@ export default function About() {
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                     <Code className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Compétences</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Compétences
+                  </h3>
                 </div>
                 <div className="space-y-6">
                   {Object.entries(skillCategories).map(([key, category]) => {
-                    const categorySkills = skills.filter(skill => skill.category === key);
+                    const categorySkills = skills.filter(
+                      (skill) => skill.category === key
+                    );
                     if (categorySkills.length === 0) return null;
-                    
+
                     return (
                       <div key={key} className="space-y-3">
                         <h4 className="font-semibold text-gray-800 flex items-center gap-2">
-                          <div className={`w-3 h-3 rounded-full ${category.color}`} />
+                          <div
+                            className={`w-3 h-3 rounded-full ${category.color}`}
+                          />
                           {category.name}
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -125,9 +139,14 @@ export default function About() {
                             >
                               {skill.name}
                               <div className="ml-2 flex gap-1">
-                                {Array.from({ length: skill.proficiency }).map((_, i) => (
-                                  <div key={i} className="w-1.5 h-1.5 bg-amber-500 rounded-full" />
-                                ))}
+                                {Array.from({ length: skill.proficiency }).map(
+                                  (_, i) => (
+                                    <div
+                                      key={i}
+                                      className="w-1.5 h-1.5 bg-amber-500 rounded-full"
+                                    />
+                                  )
+                                )}
                               </div>
                             </Badge>
                           ))}
@@ -153,7 +172,9 @@ export default function About() {
             <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center">
               <Briefcase className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-3xl font-bold text-gray-900">Expérience professionnelle</h3>
+            <h3 className="text-3xl font-bold text-gray-900">
+              Expérience professionnelle
+            </h3>
           </div>
 
           <div className="space-y-6">
@@ -168,21 +189,49 @@ export default function About() {
                 <Card className="shadow-lg border-0 hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
-                      <div className="flex-1">
-                        <h4 className="text-xl font-bold text-gray-900">{exp.position}</h4>
-                        <p className="text-lg text-amber-600 font-semibold">{exp.company}</p>
+                      <div className="flex items-center gap-4 flex-1">
+                        {/* Company Logo */}
+                        {exp.logo && (
+                          <div className="w-12 h-12 rounded-full bg-white shadow-md flex items-center justify-center overflow-hidden border-2 border-gray-100">
+                            <img
+                              src={exp.logo}
+                              alt={`Logo ${exp.company}`}
+                              className="w-8 h-8 object-contain"
+                              onError={(e) => {
+                                e.target.style.display = "none";
+                                e.target.nextSibling.style.display = "flex";
+                              }}
+                            />
+                            <div className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full items-center justify-center text-white text-sm font-bold hidden">
+                              {exp.company.charAt(0)}
+                            </div>
+                          </div>
+                        )}
+                        <div>
+                          <h4 className="text-xl font-bold text-gray-900">
+                            {exp.position}
+                          </h4>
+                          <p className="text-lg text-amber-600 font-semibold">
+                            {exp.company}
+                          </p>
+                        </div>
                       </div>
                       <div className="text-sm text-gray-500">
-                        {formatDate(exp.start_date)} - {exp.end_date ? formatDate(exp.end_date) : 'Présent'}
+                        {formatDate(exp.start_date)} -{" "}
+                        {exp.end_date ? formatDate(exp.end_date) : "Présent"}
                         {exp.is_current && (
-                          <Badge className="ml-2 bg-green-100 text-green-800">Actuel</Badge>
+                          <Badge className="ml-2 bg-green-100 text-green-800">
+                            Actuel
+                          </Badge>
                         )}
                       </div>
                     </div>
                     <p className="text-gray-600 mb-4">{exp.description}</p>
                     {exp.achievements && exp.achievements.length > 0 && (
                       <div className="space-y-2">
-                        <h5 className="font-semibold text-gray-800">Réalisations clés :</h5>
+                        <h5 className="font-semibold text-gray-800">
+                          Réalisations clés :
+                        </h5>
                         <ul className="list-disc list-inside text-gray-600 space-y-1">
                           {exp.achievements.map((achievement, i) => (
                             <li key={i}>{achievement}</li>

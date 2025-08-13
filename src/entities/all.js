@@ -165,6 +165,7 @@ const mockExperiences = [
     id: 1,
     position: "Développeur",
     company: "LeBlogDuDirigeant",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB7IiRSsI2EXKaDu6JByB9YIz-ChYIzJ19Xg&s",
     start_date: "2025-07-01",
     end_date: "2025-12-31",
     is_current: true,
