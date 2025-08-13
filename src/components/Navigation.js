@@ -48,16 +48,20 @@ export default function Navigation() {
               onClick={() => scrollToSection('hero')}
               style={{
                 marginTop: '0.5rem', // éloigne du haut
-              }}
-            >
-              <div className="w-7 h-7 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                }}
+              >
+                <div className="w-7 h-7 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xs md:text-sm">MD</span>
-              </div>
-              <span className={`font-bold text-sm md:text-lg truncate ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+                </div>
+                <span className={`font-bold text-sm md:text-lg truncate ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
                 <span className="block md:inline">Mathys Dupont</span>
-              </span>
-            </motion.div>
-            {/* Desktop Navigation */}
+                </span>
+                {/* Hide name on mobile, show only on md+ */}
+                <span className={`font-bold text-sm md:text-lg truncate ${isScrolled ? 'text-gray-900' : 'text-white'} hidden md:block`}>
+                Mathys Dupont
+                </span>
+              </motion.div>
+              {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8 flex-shrink-0">
               {navItems.map((item) => (
                 <button
