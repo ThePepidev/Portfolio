@@ -1,21 +1,27 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { motion } from "framer-motion";
+import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800">
+    <section
+      id="hero"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800"
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '50px 50px'
-        }} />
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -30,11 +36,13 @@ export default function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="w-32 h-32 mx-auto mb-8 relative"
+            className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-8 mt-16 md:mt-0 relative"
           >
             <div className="w-full h-full rounded-full bg-gradient-to-r from-amber-400 to-orange-500 p-1">
               <div className="w-full h-full rounded-full bg-gray-800 flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">MD</span>
+                <span className="text-2xl md:text-4xl font-bold text-white">
+                  MD
+                </span>
               </div>
             </div>
             <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
@@ -66,8 +74,9 @@ export default function Hero() {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Création d'applications web et développement logiciel. 
-            Passionné par la technologie et l'innovation, je transforme des idées en solutions numériques.
+            Création d'applications web et développement logiciel. Passionné par
+            la technologie et l'innovation, je transforme des idées en solutions
+            numériques.
           </motion.p>
 
           <motion.div
@@ -77,13 +86,13 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <Button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
               className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-amber-500/25"
             >
               Voir mes projets
             </Button>
             <Button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               variant="outline"
               className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-amber-500 px-8 py-4 text-lg rounded-full transition-all duration-300"
             >
@@ -97,13 +106,22 @@ export default function Hero() {
             transition={{ delay: 1.3, duration: 0.8 }}
             className="flex justify-center gap-6"
           >
-            <a href="https://github.com/ThePepidev" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
+            <a
+              href="https://github.com/ThePepidev"
+              className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
+            >
               <Github className="w-6 h-6" />
             </a>
-            <a href="https://www.linkedin.com/in/mathys-dupont-8a934333b/" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
+            <a
+              href="https://www.linkedin.com/in/mathys-dupont-8a934333b/"
+              className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
+            >
               <Linkedin className="w-6 h-6" />
             </a>
-            <a href="mailto:mathys.dupont.pro@outlook.com" className="text-gray-400 hover:text-amber-500 transition-colors duration-300">
+            <a
+              href="mailto:mathys.dupont.pro@outlook.com"
+              className="text-gray-400 hover:text-amber-500 transition-colors duration-300"
+            >
               <Mail className="w-6 h-6" />
             </a>
           </motion.div>
@@ -120,7 +138,7 @@ export default function Hero() {
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="cursor-pointer"
-            onClick={() => scrollToSection('about')}
+            onClick={() => scrollToSection("about")}
           >
             <ChevronDown className="w-8 h-8 text-gray-500" />
           </motion.div>

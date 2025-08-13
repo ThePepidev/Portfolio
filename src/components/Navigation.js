@@ -40,29 +40,27 @@ export default function Navigation() {
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 cursor-pointer flex-shrink-0 mr-4"
+              className="flex items-center gap-2 cursor-pointer"
               onClick={() => scrollToSection('hero')}
-              style={{
-                marginTop: '0.5rem', // éloigne du haut
-                }}
-              >
-                <div className="w-7 h-7 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xs md:text-sm">MD</span>
-                </div>
-                <span className={`font-bold text-sm md:text-lg truncate ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
-                <span className="block md:inline">Mathys Dupont</span>
-                </span>
-                {/* Hide name on mobile, show only on md+ */}
-                <span className={`font-bold text-sm md:text-lg truncate ${isScrolled ? 'text-gray-900' : 'text-white'} hidden md:block`}>
+            >
+              <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">MD</span>
+              </div>
+              {/* Hide on desktop, show on mobile */}
+              <span className={`font-bold text-lg ${isScrolled ? 'text-gray-900' : 'text-white'} hidden md:block`}>
                 Mathys Dupont
-                </span>
-              </motion.div>
-              {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8 flex-shrink-0">
+              </span>
+              <span className={`font-bold text-lg ${isScrolled ? 'text-gray-900' : 'text-white'} md:hidden`}>
+                M. Dupont
+              </span>
+            </motion.div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -80,7 +78,7 @@ export default function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden flex-shrink-0"
+              className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
