@@ -44,18 +44,19 @@ export default function Navigation() {
             {/* Logo */}
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2 cursor-pointer flex-shrink-0 mr-4"
+              className="flex items-center gap-1 md:gap-2 cursor-pointer flex-shrink-0 mr-2 md:mr-4"
               onClick={() => scrollToSection("hero")}
             >
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
+              <div className="w-6 h-6 md:w-10 md:h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xs md:text-sm">
                   MD
                 </span>
               </div>
               <span
-                className={`font-bold text-base md:text-lg truncate ${isScrolled ? "text-gray-900" : "text-white"}`}
+                className={`font-bold text-sm md:text-lg truncate ${isScrolled ? "text-gray-900" : "text-white"}`}
               >
-                Mathys Dupont
+                <span className="hidden sm:inline">Mathys Dupont</span>
+                <span className="sm:hidden">M. Dupont</span>
               </span>
             </motion.div>
 
