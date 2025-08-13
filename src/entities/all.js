@@ -9,7 +9,7 @@ const mockProjects = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500",
     technologies: ["React", "TailwindCSS", "Framer Motion", "Vite"],
     github_url: "https://github.com/ThePepidev/Portfolio",
-    live_url: "https://portfolio-12mofhsus-thepepidevs-projects.vercel.app/",
+    live_url: "https://www.pepidev.dev",
     category: "web",
     status: "completed",
   },
