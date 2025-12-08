@@ -4,8 +4,6 @@ import emailjs from "@emailjs/browser";
 const isDev = process.env.NODE_ENV !== "production";
 
 export const SendEmail = async ({ to, subject, body }) => {
-  console.log(isDev)
-  console.log(process.env.NODE_ENV)
   if (isDev) {
     // ---- DEVELOPMENT MODE ----
     await new Promise((resolve) => setTimeout(resolve, 800));
