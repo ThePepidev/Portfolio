@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 
+
 // Toggle dev/prod based on env
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -21,17 +22,21 @@ export const SendEmail = async ({ to, subject, body }) => {
     };
   }
 
+  const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+  const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+  const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+
   // ---- PRODUCTION MODE w/ EMAILJS ----
   try {
     const result = await emailjs.send(
-      "service_5yqdpqg",
-      "template_3bpfzlf",
+      serviceId,
+      templateId,
       {
         to,
         subject,
         body,
       },
-      "WdNgemyHblSArj_Ct" // optional depending on config
+      publicKey // optional depending on config
     );
 
     return {
