@@ -1,27 +1,53 @@
-// Mock email service for development
+import emailjs from "@emailjs/browser";
+
+// Toggle dev/prod based on env
+const isDev = process.env.NODE_ENV !== "production";
+
 export const SendEmail = async ({ to, subject, body }) => {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  if (isDev) {
+    // ---- DEVELOPMENT MODE ----
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-  // In development, just log the email instead of sending
-  console.log("📧 Email simulé envoyé:", {
-    to,
-    subject,
-    body,
-    timestamp: new Date().toISOString(),
-  });
+    console.log("📧 Email simulé (dev):", {
+      to,
+      subject,
+      body,
+      timestamp: new Date().toISOString(),
+    });
 
-  // Simulate success
-  return {
-    success: true,
-    messageId: `mock-${Date.now()}`,
-    message: "Email envoyé avec succès (mode développement)",
-  };
+    return {
+      success: true,
+      messageId: `mock-${Date.now()}`,
+      message: "Email simulé envoyé (mode dev)",
+    };
+  }
 
-  // In production, you would integrate with a real email service like:
-  // - EmailJS
-  // - SendGrid
-  // - Mailgun
-  // - AWS SES
-  // etc.
+  // ---- PRODUCTION MODE w/ EMAILJS ----
+  try {
+    const result = await emailjs.send(
+      "service_5yqdpqg",
+      "template_3bpfzlf",
+      {
+        to,
+        subject,
+        body,
+      },
+      "WdNgemyHblSArj_Ct" // optional depending on config
+    );
+
+    return {
+      success: true,
+      messageId: result?.status || "emailjs-ok",
+      message: "Email envoyé avec succès via EmailJS",
+    };
+  } catch (error) {
+    console.error("❌ Erreur EmailJS :", error);
+
+    return {
+      success: false,
+      messageId: null,
+      message: "Échec de l'envoi de l'email",
+      error,
+    };
+  }
 };
