@@ -17,6 +17,18 @@ Ce projet est en fait mon portfolio personnel disponible en cliquant [ici !](htt
 
     npm install
 
+**créer les variables d'environnement emailjs:**
+
+    touch .env.local
+
+```env
+VITE_EMAIL_SERVICE_ID=ur_service_id
+VITE_EMAIL_TEMPLATE_ID=ur_template_id
+VITE_EMAIL_PUBLIC_KEY=ur_public_key
+```
+
+*plus d'info sur [emailjs](https://www.emailjs.com/docs/tutorial/overview/)*
+
 **lancement de développement(en local):**
 
     npm run dev
