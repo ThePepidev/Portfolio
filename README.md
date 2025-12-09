@@ -47,7 +47,8 @@ VITE_EMAIL_PUBLIC_KEY=ur_public_key
     ├── src
     ├── tailwind.config.js
     ├── vercel.json
-    └── vite.config.js
+    ├── vite.config.js
+    └── .env.local
     
     4 directories, 7 files
 
