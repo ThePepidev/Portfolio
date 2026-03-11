@@ -35,7 +35,7 @@ const mockProjects = [
     technologies: ["FastAPI", "Python", "LangChain", "MySQL", "Chromadb", "Streamlit", "Crewai"],
     /* live_url: "https://rag-agents.example.com", */
     category: "backend",
-    status: "in_progress",
+    status: "completed",
   },
 ];
 
@@ -45,8 +45,15 @@ const mockSkills = [
     id: 1,
     name: "JavaScript",
     category: "frontend",
-    proficiency: 3,
+    proficiency: 4,
     icon: "js",
+},
+{
+    id: 2,
+    name: "TypeScript",
+    category: "frontend",
+    proficiency: 3,
+    icon: "ts",
 },
 {
     id: 2,
@@ -87,29 +94,43 @@ const mockSkills = [
   },
   {
     id: 7,
-    name: "PHP",
+    name: "C",
+    category: "backend",
+    proficiency: 5,
+    icon: "c",
+  },
+  {
+    id: 8,
+    name: "C++",
+    category: "backend",
+    proficiency: 5,
+    icon: "cpp",
+  },
+  {
+    id: 9,
+    name: "Rust",
     category: "backend",
     proficiency: 3,
-    icon: "php",
+    icon: "rust",
   },
 
   // Database
   {
-    id: 8,
+    id: 10,
     name: "PostgreSQL",
     category: "database",
     proficiency: 2,
     icon: "postgres",
   },
   {
-    id: 9,
+    id: 11,
     name: "MySQL",
     category: "database",
     proficiency: 4,
     icon: "mysql",
   },
   {
-    id: 10,
+    id: 12,
     name: "Chromadb",
     category: "database",
     proficiency: 3,
@@ -118,21 +139,21 @@ const mockSkills = [
 
   // Tools
   {
-    id: 11,
+    id: 13,
     name: "Git",
     category: "tools",
     proficiency: 5,
     icon: "git",
   },
   {
-    id: 12,
+    id: 14,
     name: "Docker",
     category: "tools",
-    proficiency: 3,
+    proficiency: 4,
     icon: "docker",
   },
   {
-    id: 13,
+    id: 15,
     name: "Figma",
     category: "tools",
     proficiency: 2,
@@ -141,22 +162,22 @@ const mockSkills = [
 
   // Soft Skills
   {
-    id: 14,
+    id: 16,
     name: "Communication",
     category: "soft_skills",
     proficiency: 5,
   },
   {
-    id: 15,
+    id: 17,
     name: "Travail d'équipe",
     category: "soft_skills",
     proficiency: 5,
   },
   {
-    id: 16,
+    id: 18,
     name: "Résolution de problèmes",
     category: "soft_skills",
-    proficiency: 4,
+    proficiency: 5,
   },
 ];
 
