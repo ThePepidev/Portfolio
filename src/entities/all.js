@@ -190,7 +190,7 @@ const mockExperiences = [
     website: "https://www.leblogdudirigeant.com",
     start_date: "2025-07-01",
     end_date: "2025-12-31",
-    is_current: true,
+    is_current: false,
     description:
       "Développement d'api et d'applications web modernes utilisant les dernières technologies en terme d'intelligence artificielle et de développement web.",
     achievements: [
